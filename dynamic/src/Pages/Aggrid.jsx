@@ -4,6 +4,7 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css'; 
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import axios from 'axios';
+import {SERVER_IP,DEVICE_ENVIRONMENT3_END_POINT} from '../Pages/CommanConstants.jsx';
 
 // import FormDialog from '../../../components/Quantity_dialogbox'
 // import { Button, Grid } from '@mui/material';
@@ -15,6 +16,8 @@ const [open, setOpen] = React.useState(false);
 const [formData, setFormData] = useState({ Quantity:''})
 const [rowData, setRowData] = useState([]);
 const [selectedRows, setSelectedRows] = useState([]);
+
+axios.defaults.baseURL = `http://${SERVER_IP}`;
 
 
 const handleClickOpen = () => {
@@ -46,7 +49,7 @@ const handleClose = () => {
 
   const getItem = () => {
    
-    axios.get("192.168.1.10:8080/api/deviceEnvironment1/getAll")
+    axios.get("/"+ DEVICE_ENVIRONMENT3_END_POINT +"/getAll")
       .then(response => {
         console.log(response);
         setTableData(response.data);
@@ -153,7 +156,7 @@ const handleClose = () => {
    <Button variant="contained" color="primary" onClick={handleClickOpen}>Add Quantity</Button>
    </Grid> */}
   
-   <div className="ag-theme-alpine m-3 " style={{width: "100%", height: 500}}>
+   <div className="ag-theme-alpine m-3 " style={{width: "100%", height: 500,marginLeft:10}}>
   <AgGridReact
      rowData={tableData}
      columnDefs={columnDefs}

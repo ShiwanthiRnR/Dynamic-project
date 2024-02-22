@@ -4,7 +4,7 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css'; 
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import axios from 'axios';
-import {SERVER_IP,DEVICE_ENVIRONMENT3_END_POINT} from '../Pages/CommanConstants.jsx';
+import {SERVER_IP,DEVICE_ENVIRONMENT4_END_POINT} from '../Pages/CommanConstants.jsx';
 
 // import FormDialog from '../../../components/Quantity_dialogbox'
 // import { Button, Grid } from '@mui/material';
@@ -31,8 +31,9 @@ const handleClose = () => {
 
   const columnDefs = [
     {headerName:"ID", field:  "id", filter: true, editable: true, cellEditor: 'agTextCellEditor' },
-    {headerName:"Quantity", field: "Quantity", filter: true ,editable: true, cellEditor: 'agTextCellEditor'},
-    {headerName:"Date_and_time" ,field: "Date_and_time",editable: true, cellEditor: 'agTextCellEditor' },
+    {headerName:"Quantity", field: "quantity", filter: true ,editable: true, cellEditor: 'agTextCellEditor'},
+    {headerName:"Item", field: "item", filter: true ,editable: true, cellEditor: 'agTextCellEditor'},
+    {headerName:"Date_and_time" ,field: "uploadDateAndTime",editable: true, cellEditor: 'agTextCellEditor' },
     // {headerName:"Time" ,field: "Time",editable: true, cellEditor: 'agTextCellEditor' },
  
   ];
@@ -49,7 +50,7 @@ const handleClose = () => {
 
   const getItem = () => {
    
-    axios.get("/"+ DEVICE_ENVIRONMENT3_END_POINT +"/getAll")
+    axios.get("/"+ DEVICE_ENVIRONMENT4_END_POINT+"/getAll")
       .then(response => {
         console.log(response);
         setTableData(response.data);
@@ -156,7 +157,7 @@ const handleClose = () => {
    <Button variant="contained" color="primary" onClick={handleClickOpen}>Add Quantity</Button>
    </Grid> */}
   
-   <div className="ag-theme-alpine m-3 " style={{width: "100%", height: 500,marginLeft:10}}>
+   <div className="ag-theme-alpine m-3 " style={{width: "100%", height: 920,marginLeft:10}}>
   <AgGridReact
      rowData={tableData}
      columnDefs={columnDefs}

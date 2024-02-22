@@ -14,7 +14,7 @@ const Nav = () => {
     <button data-bs-toggle="collapse" data-bs-target="#navcol-1" className="navbar-toggler">
       <span className="visually-hidden">Toggle navigation</span><span className="navbar-toggler-icon" /></button>
     <div class="collapse navbar-collapse justify-content-around" id="navcol-1" style={{marginLeft: 1, paddingLeft: 0}}>
-      <input type="search" className="justify-content-center mx-auto" placeholder="search for a page" /><i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass"></i> <input type="search" className="justify-content-center mx-auto " placeholder="search for a page"/>
       <ul className="navbar-nav">
         <li className="nav-item" />
         <li className="nav-item"><a className="nav-link active" href="#">First Item</a></li>
